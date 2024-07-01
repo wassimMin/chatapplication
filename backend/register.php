@@ -1,6 +1,7 @@
 <?php
 require 'db.php';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -32,5 +33,6 @@ if(!empty($name) && !empty($email) && !empty($password)){
 }else{
     echo "Please fill in all fields.";
 
+}
 }
 ?>
