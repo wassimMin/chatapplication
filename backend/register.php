@@ -23,7 +23,7 @@ if(!empty($name) && !empty($email) && !empty($password)){
         $stmt->bind_param("sss",$name,$email,$hashed_password);
         if($stmt->execute()){
             $_SESSION['user'] = $email;
-            header('Location: /login.html');
+            header('Location: ../frontend/Login.html');
             exit();
         }else{
             echo "Error: " . $stmt->error;
