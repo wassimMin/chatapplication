@@ -128,22 +128,35 @@ input {
 
 #chat-form {
     display: flex;
+    align-items: center;
+    margin-top: 20rem;
+    padding-top: 10px;
 }
 
 #chat-form input {
     flex: 1;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+    margin-right: 10px;
+    width: 350px;
+    height: 40px; 
+    line-height: 20px; 
+    box-sizing: border-box; 
 }
 
 #chat-form button {
-    padding: 10px;
-    background-color: #49b0ac;
-    color: white;
+    padding: 10px 25px;
+    font-family: "Rubik", sans-serif;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    background-color: #48b0a9;
     border: none;
-    border-radius: 0 5px 5px 0;
+    border-radius: 5px; 
     cursor: pointer;
+    height: 40px; 
+    line-height: 20px; /* Adjust line height */
+    box-sizing: border-box; /* Ensure padding is included in height */
 }
 
 #chat-form button:hover {
