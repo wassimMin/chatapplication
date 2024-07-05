@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Open chat function
     function openChat(user) {
         chatUsername.textContent = user.name;
-        chatbox.style.display = 'display';
+        chatbox.style.display = 'block';
         currentChatUserId = user.userid;
         fetchMessages(user.userid);
     }
@@ -41,10 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }).then(messages => {
                 console.log("Fetched Messages: ", messages);
                 const chatBoxContent = document.querySelector('.chat-box-content');
-                chatBoxContent.innerHTML = ''; // Clear previous messages
+                chatBoxContent.innerHTML = ''; 
                 messages.forEach(message => {
                     const messageElement = document.createElement('p');
-                    messageElement.textContent = message.content;
+                    messageElement.classList.add('message');
+                    if(message.sender_id === currentChatUserId){
+                        messageElement.classList.add('user');
+                    }else{
+                        messageElement.classList.add('self');
+                    }
+                    messageElement.innerHTML = `<span class="sender-id">${message.sender_id}</span>: ${message.content}`;
                     chatBoxContent.appendChild(messageElement);
                 });
             }).catch(error => console.error("Error Fetching Messages: ", error));
